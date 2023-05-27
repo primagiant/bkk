@@ -31,7 +31,7 @@
             </svg>
         </button>
 
-        <aside :class="{'translate-x-0': isOpen, '-translate-x-full': ! isOpen }"
+        <aside :class="{ 'translate-x-0': isOpen, '-translate-x-full': !isOpen }"
             class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform sm:translate-x-0" aria-label="Sidebar">
             <div class="flex flex-col h-full">
                 <div class="flex justify-center w-full bg-gray-50 dark:bg-gray-800 py-4 px-2">
@@ -46,8 +46,11 @@
                 <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
                     <ul class="flex flex-col font-medium h-full">
                         <li>
-                            <a href="#" @click="isOpen=false"
-                                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <a href="{{ route('dashboard') }}" @click="isOpen=false" @class([
+                                'flex mb-2 items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700',
+                                'flex mb-2 items-center p-2 text-gray-900 rounded-lg dark:text-white bg-gray-100 dark:bg-gray-700' => request()->routeIs(
+                                    'dashboard'),
+                            ])>
                                 <svg aria-hidden="true"
                                     class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                                     fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -58,8 +61,11 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" @click="isOpen=false"
-                                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <a href="{{ route('input_program') }}" @click="isOpen=false" @class([
+                                'flex mb-2 items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700',
+                                'flex mb-2 items-center p-2 text-gray-900 rounded-lg dark:text-white bg-gray-100 dark:bg-gray-700' => request()->routeIs(
+                                    'input_program'),
+                            ])>
                                 <svg aria-hidden="true"
                                     class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                                     fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -71,8 +77,11 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" @click="isOpen=false"
-                                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <a href="{{ route('program') }}" @click="isOpen=false" @class([
+                                'flex mb-2 items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700',
+                                'flex mb-2 items-center p-2 text-gray-900 rounded-lg dark:text-white bg-gray-100 dark:bg-gray-700' => request()->routeIs(
+                                    'program'),
+                            ])>
                                 <svg aria-hidden="true"
                                     class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                                     fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -87,8 +96,11 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" @click="isOpen=false"
-                                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <a href="{{ route('team') }}" @click="isOpen=false" @class([
+                                'flex mb-2 items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700',
+                                'flex mb-2 items-center p-2 text-gray-900 rounded-lg dark:text-white bg-gray-100 dark:bg-gray-700' => request()->routeIs(
+                                    'team'),
+                            ])>
                                 <svg aria-hidden="true"
                                     class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                                     fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -120,10 +132,20 @@
         </aside>
     </nav>
 
-    <div class="p-4 sm:ml-64">
-        <div class="p-4 rounded-lg">
+    <div class="p-4 sm:ml-64 relative">
+        <div class="p-4 md:p-16 rounded-lg">
             {{ $slot }}
         </div>
+        <a href="{{ route('profile.edit') }}"
+            class="cursor-pointer fixed top-8 right-8 z-[999] h-10 w-10 rounded-md shadow-sm bg-gray-700 flex items-center justify-center">
+            <svg aria-hidden="true"
+                class="flex-shrink-0 w-6 h-6 text-white transition duration-75 dark:text-white group-hover:text-gray-900 dark:group-hover:text-white"
+                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                    clip-rule="evenodd">
+                </path>
+            </svg>
+        </a>
     </div>
 </body>
 

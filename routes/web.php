@@ -26,6 +26,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/input_program', function () {
+        return view("input_program");
+    })->name('input_program');
+
+    Route::get('/program', function () {
+        return view("program");
+    })->name('program');
+
+    Route::get('/team', function () {
+        return view("team");
+    })->name('team');
 });
 
 require __DIR__ . '/auth.php';

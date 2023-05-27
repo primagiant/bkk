@@ -20,7 +20,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
         <div class="bg-indigo-700 lg:rounded-r-3xl flex flex-col justify-center items-center shadow-lg">
             <div class="w-2/3">
-                @include("components.animations.login-animation")
+                @include('components.animations.login-animation')
             </div>
             <h2 class="text-white text-2xl lg:text-4xl pb-16 w-2/3 text-center">
                 Sistem Kendali <br>Program Aktivitas Badan Kerjasama dan Kehumasan
