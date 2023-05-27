@@ -15,3 +15,7 @@
 - create the database and push the admin users: `php artisan migrate --seed`
 - running vite: `npm run dev`
 - and in the new terminal, to running the server: `php artisan serve`
+
+# Default user
+- email: `superadmin@admin.com`
+- password: `password`
