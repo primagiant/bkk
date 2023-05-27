@@ -8,4 +8,10 @@
 </p>
 
 ## How To Install The App
-1. `git clone https://github.com/primagiant/bkk`
+- `git clone https://github.com/primagiant/bkk`
+- `cd bkk`
+- install backend dependency: `composer install`
+- install frontend dependency: `npm install`
+- create the database and push the admin users: `php artisan migrate --seed`
+- running vite: `npm run dev`
+- and in the new terminal, to running the server: `php artisan serve`
